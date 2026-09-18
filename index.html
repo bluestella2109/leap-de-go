@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111318">
+  <title>LEAP改訂版でGO！</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-home">
+  <div class="noise"></div>
+  <div class="scanlines"></div>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+  <main class="home">
+    <header class="brand">
+      <p class="eyebrow">LEAP VOCABULARY CHALLENGE</p>
+      <h1><span>LEAP</span><strong>改訂版でGO！</strong></h1>
+      <p class="subtitle">英単語を、覚える。打つ。超える。</p>
+    </header>
+
+    <section class="mode-grid" aria-label="ゲームモード">
+      <a class="mode-card" href="game.html?mode=meaning">
+        <span class="mode-no">01</span>
+        <span class="mode-title">意味 → 単語</span>
+        <span class="mode-desc">流れてくる日本語の意味から、英単語を入力。</span>
+        <span class="mode-key">TYPE</span>
+      </a>
+      <a class="mode-card" href="game.html?mode=example">
+        <span class="mode-no">02</span>
+        <span class="mode-title">例文 → 単語</span>
+        <span class="mode-desc">例文の空欄に入る英単語を入力。</span>
+        <span class="mode-key">FILL</span>
+      </a>
+      <a class="mode-card" href="game.html?mode=choice">
+        <span class="mode-no">03</span>
+        <span class="mode-title">4択</span>
+        <span class="mode-desc">表示された英単語に合う意味を4択から選択。</span>
+        <span class="mode-key">SELECT</span>
+      </a>
+      <a class="mode-card mode-card-mix" href="game.html?mode=mix">
+        <span class="mode-no">MIX</span>
+        <span class="mode-title">RANDOM MIX</span>
+        <span class="mode-desc">3つのモードをランダムに切り替えて挑戦。</span>
+        <span class="mode-key">MIX</span>
+      </a>
+    </section>
+
+    <section class="quick-actions">
+      <a href="study.html" class="ghost-button">STUDY / REVIEW</a>
+      <a href="result.html" class="ghost-button">MY DATA</a>
+    </section>
+    <footer class="status-bar">
+      <span><i class="status-dot"></i> WORD DATABASE ONLINE</span>
+      <span id="wordCount">LOADING DATA...</span>
+    </footer>
+  </main>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

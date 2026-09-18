@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111318">
+  <title>GAME | LEAP改訂版でGO！</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body class="page-game">
+  <div class="noise"></div>
+  <div class="scanlines"></div>
+  <div id="rain" class="code-rain" aria-hidden="true"></div>
+
+  <main class="game-shell">
+    <header class="game-top">
+      <a class="mini-logo" href="index.html">LEAP <span>改訂版でGO！</span></a>
+      <div class="game-stats">
+        <div><small>SCORE</small><strong id="score">000000</strong></div>
+        <div><small>COMBO</small><strong id="combo">×0</strong></div>
+        <div><small>QUESTION</small><strong><span id="qNow">01</span>/<span id="qTotal">10</span></strong></div>
+      </div>
+      <button id="pauseBtn" class="icon-button" type="button">PAUSE</button>
+    </header>
+
+    <section class="progress-wrap">
+      <div class="progress-line"><span id="timeBar"></span></div>
+      <div class="time-readout"><span id="timeText">10.00</span>s</div>
+    </section>
+
+    <section id="gameStage" class="game-stage">
+      <div class="mode-label" id="modeLabel">MODE 01 / MEANING → WORD</div>
+      <div id="questionArea" class="question-area"></div>
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+      <div id="answerArea" class="answer-area"></div>
+    </section>
+  </main>
+
+  <div id="pauseModal" class="modal hidden">
+    <div class="modal-card">
+      <p class="eyebrow">GAME PAUSED</p>
+      <h2>PAUSED</h2>
+      <button id="resumeBtn" class="primary-button">RESUME</button>
+      <a class="ghost-button" href="index.html">QUIT</a>
+    </div>
+  </div>
+  <script type="module" src="js/game.js"></script>
+</body>
+</html>
