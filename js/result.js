@@ -1,9 +1,1 @@
-import {getData} from "./storage.js";
-const d=getData();
-document.querySelector("#totalPlay").textContent=d.totalPlay;
-document.querySelector("#totalCorrect").textContent=d.totalCorrect;
-document.querySelector("#accuracy").textContent=(d.totalAnswered?d.totalCorrect/d.totalAnswered*100:0).toFixed(1)+"%";
-document.querySelector("#maxCombo").textContent=d.maxCombo;
-const weak=Object.entries(d.words).filter(([,v])=>v.wrong>0).sort((a,b)=>(b[1].wrong-a[1].wrong)).slice(0,20);
-document.querySelector("#weakCount").textContent=weak.length;
-document.querySelector("#weakWords").innerHTML=weak.map(([word,v])=>`<div class="weak-item"><span>${word}</span><span>${v.correct} CORRECT / ${v.wrong} MISS</span></div>`).join("")||"<p>まだ苦手単語はありません。</p>";
+import{data,save}from"./storage.js";const d=data();$("#plays").textContent=d.plays;$("#acc").textContent=(d.answered?d.correct/d.answered*100:0).toFixed(1)+"%";$("#max").textContent=d.maxCombo;$("#perfect").textContent=d.perfect;function $(s){return document.querySelector(s)}const a=Object.entries(d.words).sort((x,y)=>(y[1].w-x[1].w)).slice(0,30);$("#mastery").innerHTML=a.map(([w,v])=>{let pct=Math.round(v.c/(v.c+v.w)*100);return `<div class="mastery-row"><span>${w}</span><div class="bar"><span style="width:${pct}%"></span></div><b>${pct}%</b></div>`}).join("")||"<p>まだプレイデータがありません。</p>";$("#reset").onclick=()=>{if(confirm("すべてのプレイデータを削除します。よろしいですか？")){localStorage.removeItem("leapGoV2");location.reload()}};

@@ -1,32 +1,24 @@
-# LEAP改訂版でGO！
+# LEAP改訂版でGO！ v2
 
-Google Sheets連携型の英単語ゲームです。
+実装内容:
+- 3モード + RANDOM MIX + DAILY CHALLENGE
+- 3・2・1・GO!
+- 流れるコード背景
+- PERFECT / GREAT / MISS
+- COMBO演出
+- パーティクル
+- 本格4択
+- 結果画面・ランク
+- Web AudioによるBGM/効果音基盤
+- 苦手単語レビュー
+- 難易度を含む将来拡張用Sheets列
+- 設定（音・アニメーション・問題数）
+- キーボード4択
+- iPad/スマホ対応
+- localStorageによる学習履歴
+- Google Sheets公開CSVをリアルタイム取得
 
-## フォルダ構成
+Google Sheets列:
+ID | 英単語 | 意味 | 例文 | 例文の意味 | 覚えるポイント | 難易度
 
-- `index.html` — トップ・モード選択
-- `game.html` — 3モード共通ゲーム
-- `study.html` — 単語学習
-- `result.html` — プレイヤーデータ
-- `css/` — UI / ゲーム演出
-- `js/` — ゲームロジック・Sheets取得
-- `apps-script/Code.gs` — 将来のAPI方式用
-
-## Google Sheets
-
-1行目は次の列名にしてください。
-
-`ID | 英単語 | 意味 | 例文 | 例文の意味 | 覚えるポイント | 難易度`
-
-現在のゲームは、指定された公開スプレッドシートのCSVを読み込みます。
-
-公開URL:
-https://docs.google.com/spreadsheets/d/e/2PACX-1vSlpVxxNOK5pVkNNVpTsDBAyzHpqssOUL9WtTQdU8iZvWqq-_h6U8OkRkdy5ONDHlxWtyxFGa2Cvxu-/pubhtml
-
-## GitHub Pages
-
-リポジトリのルートにこのフォルダ内のファイルを配置し、GitHub Pagesを有効にしてください。
-
-## 注意
-
-GitHub Pagesは静的ホスティングなので、Google Sheetsの公開設定が必要です。
+注: GitHub Pagesではブラウザの自動再生制限があるため、ゲーム開始後にWeb Audioを生成します。外部音声ファイルを必須にしていません。

@@ -1,11 +1,1 @@
-import {loadWords} from "./sheets.js";
-(async()=>{
-  const el=document.querySelector("#wordCount");
-  try{
-    const words=await loadWords();
-    if(el) el.textContent=`${words.length.toLocaleString()} WORDS LOADED`;
-  }catch(e){
-    if(el) el.textContent="DATA CONNECTION ERROR";
-    console.error(e);
-  }
-})();
+import{loadWords}from"./sheets.js";import{data,save}from"./storage.js";const d=data();document.querySelector("#soundSetting").value=d.settings.sound;document.querySelector("#motionSetting").value=d.settings.motion;document.querySelector("#countSetting").value=d.settings.count;document.querySelector("#settingsBtn").onclick=()=>document.querySelector("#settingsModal").classList.remove("hidden");document.querySelector("#closeSettings").onclick=()=>document.querySelector("#settingsModal").classList.add("hidden");document.querySelector("#saveSettings").onclick=()=>{d.settings={sound:document.querySelector("#soundSetting").value,motion:document.querySelector("#motionSetting").value,count:Number(document.querySelector("#countSetting").value)};save(d);document.querySelector("#settingsModal").classList.add("hidden")};(async()=>{try{const w=await loadWords();document.querySelector("#wordCount").textContent=w.length+" WORDS LOADED";document.querySelector("#dbStatus").textContent="DATABASE / ONLINE"}catch{document.querySelector("#wordCount").textContent="DATA ERROR";document.querySelector("#dbStatus").textContent="DATABASE / ERROR"}})();
