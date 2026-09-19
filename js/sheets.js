@@ -1,0 +1,4 @@
+const CSV_URL="https://docs.google.com/spreadsheets/d/e/2PACX-1vSlpVxxNOK5pVkNNVpTsDBAyzHpqssOUL9WtTQdU8iZvWqq-_h6U8OkRkdy5ONDHlxWtyxFGa2Cvxu-/pub?output=csv";
+const splitMeanings=v=>String(v||"").split(" / ").map(x=>x.trim()).filter(Boolean);
+function parseCSV(t){return t.trim().split(/\r?\n/).map(x=>x.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map(v=>v.replace(/^"|"$/g,"").replace(/""/g,'"').trim()))}
+export async function loadWords(){const r=await fetch(CSV_URL+"&t="+Date.now(),{cache:"no-store"});if(!r.ok)throw Error("Sheets error");const rows=parseCSV(await r.text()),h=rows[0]||[];return rows.slice(1).map((r,i)=>{const a=n=>r[h.indexOf(n)]||"";const meaning=a("意味")||r[2]||"";return{id:a("ID")||String(i+1),word:a("英単語")||r[1]||"",meaning,meanings:splitMeanings(meaning),example:a("例文")||r[3]||"",exampleMeaning:a("例文の意味")||r[4]||"",point:a("覚えるポイント")||r[5]||"",difficulty:a("難易度")||r[6]||"",category:a("カテゴリ")||r[7]||""}}).filter(x=>x.word)}
